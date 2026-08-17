@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hybroai-agents"
+version = "0.1.0"
+description = "ADK agents: news hunter, LinkedIn post writer, Google Sheet generator"
+requires-python = ">=3.11"
+dependencies = [
+    "google-adk[a2a]",
+    "requests",
+    "python-dotenv",
+    "apify-client",
+    "gspread>=6.0",
+    "google-auth>=2.0",
+    "google-auth-oauthlib>=1.2",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0",
+]
+
+[tool.setuptools]
+py-modules = ["tools"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["news_hunter*", "linkedin_post_writer*", "google_sheet_generator*"]
